@@ -1,0 +1,445 @@
+/* message box */
+body{
+    margin: 0;
+    padding:0;
+    background: linear-gradient(180deg, #02dcff, #0024ac) no-repeat;
+    min-height: 100vh;
+    padding: 10px 0;
+}
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    box-shadow: 0px 0px 8px 1px #00000091;
+    position: absolute;
+    left: 50%;
+    border-radius: 21px;
+    top: 20px;
+    overflow: hidden;
+    transform: translate(-50%,0);
+    min-height: 90vh;
+    width: 450px;
+}
+@media(max-width:550px){
+    .container{    
+        width:90%;
+    }
+}
+/* notifications area */
+.noti {
+    background-color: #ffffff7a;
+    height:70px;
+    padding: 10px 23px;
+}
+.noti >div {
+    float:right;
+    position: relative;
+    font-size: 20px;
+    margin-left: 7px;
+    width: 50px;
+    height: 50px;
+    color: #FFF;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px #4a4040;
+    line-height: 50px;
+    text-align: center;
+    background: #282143;
+    cursor: pointer;
+} 
+.count{
+    position: absolute;
+    right: 0;
+    height: 17px;
+    font-size: 16px;
+    line-height: 1;
+    min-width: 0px;
+    border-radius: 16px;
+    display: inline-block;
+    background-color: #F00
+}
+/* settings */
+.sgs{
+    position: fixed;
+    left: 19px;
+    top: 16px;
+    width: 40px;
+    height: 40px;
+    color: #FFF;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px #4a4040;
+    line-height: 40px;
+    text-align: center;
+    background: #282143;
+}
+/* user info */
+.hello {
+    height:100px;
+    padding: 10px;
+}
+.user-image{
+    height: 70px;
+    width: 70px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #0024ac;
+    display: inline-block;
+    background-position: center;
+    background-size: cover;
+
+}
+.hello .file {
+    width: 175px;
+    height: 30px;
+    padding: -1px;
+    padding-left: 5px;
+    overflow: hidden;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid;
+}
+.hello span {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    line-height: 30px;
+    position: absolute;
+    z-index: -11;
+}
+.hello input[type="file"]{
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    z-index: 2;
+}
+.hello form {
+    float: right;
+}
+.hello input[type="submit"]{
+    background-color: transparent;
+    border: 1px solid;
+    margin: 5px;
+
+}
+/* search */
+.search{  
+    background: #14a8d1f7;
+    padding: 10px;
+}
+.search input {
+    height: 35px;
+    width: 80%;
+    padding: 0 10px;
+    outline: 0;
+    float: left;
+    border-radius: 30px;
+    border: 2px solid #ffffffab;
+    background: #7bdff9a1
+}
+.search .icon{
+    height: 35px;
+    background: #FFF;
+    border-radius: 30px;
+    text-align: right;
+    padding: 5px 17px;
+}
+.res .user {
+    margin: 10px;
+    height:40px;
+    background-color: #FFF;
+    border-radius: 10px;
+    line-height: 40px;
+    padding-left:30px;
+}
+/* main boxes */
+.move{
+    width: calc(100%*3);
+    transition: 1s;
+    transform: translateX(-33%)
+}
+.move >div {
+    width: 450px;
+    float: left;
+    padding: 20px 0;
+    position: relative;
+}
+.move .user .img {
+    width: 40px;
+    height: 40px;
+    background: #FFF;
+    border-radius: 50%;
+    display: inline-block;
+    background-position: center center;
+    background-size: cover;
+}
+
+.move .user{
+    padding: 6px;
+}
+.move .user span {
+    margin-left: 12px;
+    font-size: 19px;
+}
+.move .users .spin {
+    text-align: center;
+    width: 100%;
+    font-size:45px;
+    position: absolute;
+    padding-top: 100px;
+    height: 100%;
+    pointer-events: none
+}
+@media(max-width:550px){
+    .move{
+        width:calc(100% *3);
+    }
+    .move > div {    
+        width:calc(100%/3);
+    }
+}
+/* messages */
+.move > div .icon {
+    position: absolute;
+    left: 3px;
+    top: 2px;
+    width: 40px;
+    height: 40px;
+    color: #0F0;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px 1px #4a4040;
+    line-height: 40px;
+    text-align: center;
+    background: #282143;
+}
+
+.move > div .users{
+    height: 60vh;
+    overflow-y:auto;
+}
+.move > div .users .user{
+    width: 90%;
+    height: 50px;
+    margin: 10px auto;
+    background-color: #ffffff7a;
+    border-radius: 10px;
+}
+.move .actives, .move .sent{
+    position: absolute;
+    top:70px;
+    height: 40vh;
+    display: none;
+    width:80%;
+}
+.move .actives .user, .move .sent .user{
+    min-width :300px ;
+    box-shadow: 0px 0px 4px 1px #373535;
+
+}
+.move .accept{
+    background: #0FF;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.more {
+    position: absolute;
+    left: 50%;
+    color: #FFF;
+    bottom: 10px;
+    border-radius: 10px;
+    padding: 5px 25px;
+    line-height: 1px;
+    box-shadow: 0px 0px 5px 0px #000;
+    background: #0548ff;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+/* messages box */
+
+.msg-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    display: none;
+}
+.msg-box .info {
+    height: 60px;
+    background: #03f7ffe8;
+}
+.msg-box .info i {
+    font-size: 29px;
+    position: absolute;
+    right: 0;
+    background: transparent;
+    top: 19px;
+}
+
+.showmore {
+    margin-left: 44%;
+    width: 62px;
+    height: 26px;
+    background: #282143;
+    position: absolute;
+    color: #FFF;
+    top: 75px;
+    line-height: 27px;
+    text-align: center;
+    border-radius: 8px;
+}
+.msg-box .info .img {
+    height: 50px;
+    width: 50px;
+    background: #FFF;
+    border-radius: 50%; 
+    margin: 5px;
+    background-size: cover;
+    background-position: center center;
+    display: inline-block;
+}
+.msg-box .info .img img {
+    width:100%;
+    height:100%;
+}
+.msg-box .info .name {
+    position: absolute;
+    top: 21px;
+    left: 70px;  
+    font-size: 20px;
+}
+.msg-box .msgs{
+    padding-bottom: 80px;
+    height: 73vh;
+    overflow: auto;  
+    background-color: rgba(255,255, 255, .3);
+}
+.un{
+    width: 15px;
+    display: inline-block;
+    height: 15px;
+    margin-left: 59%;
+    background: #F00;
+    border-radius: 50%;
+}
+.msgs div {
+    width: 60%;
+    height: auto;
+    word-break: break-all;
+    padding: 10px;
+    font-size: 20px;
+    margin: 10px;
+    border-radius: 20px;  
+    box-shadow: 0px 0px 5px #5e5e5e;
+}
+.msgs .me {
+    background-color:  #03c1ff;
+}
+.msgs .he {
+    background-color: #fffefd;
+    margin-left: 100%;
+    transform: translateX(-104%);
+}
+.msg-box .input {
+    height: 70px;
+    background: #12f6ff73;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+.msg-box .input input {
+    width: 80%;
+    background: 0;
+    border: 2px solid #FFF;
+    height: 50px;
+    font-size: 20px;
+    outline: 0;
+    padding: 0px 12px;
+    float: left;
+    border-radius: 50px;
+    margin-top: 9px;
+    margin-left: 9px;
+}
+.msg-box .input .icon {
+    font-size: 38px;
+    margin: 13px;
+    float: left;
+    color: #0032b2;
+}
+/* perofile  */
+.profile, .settings {
+    position: absolute;
+    width: 100%;
+    height: 40vh;
+    display: none;
+    background: #ffffff3b;
+    box-shadow: 0px 0px 8px 2px #000;
+}
+.settings{
+    height: auto;
+}
+.profile .img ,.settings .img {
+    height: 100px;
+    width: 100px;
+    margin: 45px auto;
+    overflow: hidden;
+    background: #FFF;
+    border-radius: 50%
+}
+.profile img ,.settings img {
+    height: 100%;
+    width: 100%;
+}
+.profile >span,.settings >span {
+    display: inline-block;
+    font-size: 22px;
+    color: #FFF;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    font-weight: 700;
+}
+.settings >span {
+    margin-bottom: 20px;
+}
+.profile .controle {
+    
+    margin-left: 40%;
+    margin-top: 15px;
+}
+.profile .controle span{
+    font-size: 20px;
+    background: #3163ff;
+    width: 70px;
+    cursor: pointer;
+    color: #FFF;
+    box-shadow: 0px 0px 4px #000;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+
+.settings input {
+    width: 90%;
+    font-size: 22px;
+    height: 50px;
+    margin:auto;
+    display: block;
+    outline: 0;
+    box-shadow: 0px 0px 4px -3px;
+    border : .6px solid rgba(0, 0, 0, 0.336);
+    border-radius: 50px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #FFF;
+}
+.settings input:last-child{
+    position: relative;
+    width: 40%;
+    background-color: transparent;
+    margin-right:20px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+::placeholder{
+    color: #ccc;
+}
